@@ -6,38 +6,50 @@ import Todo from "../components/todo/Todo";
 import Layout from "../components/layout/Layout";
 import { isDocument } from "@testing-library/user-event/dist/utils";
 
+
+
 function TodoList() {
- 
-  const [todos, setTodos] = useState([
+
+  const [todolists, setTodolists] = useState([
     {
     id:1,
     title : "리액트 어려워",
     content : "코드 보다가 뒤집어 지겠다 ",
-    isdone: false,
-
+    isDone: false,
+  
   },
   {
     id:2,
     title : "리액트 어려워",
     content : "코드 보다가 뒤집어 지겠다 ",
-    isdone: false,
-
+    isDone: false,
+  
   },
   {
     id:3,
     title : "리액트 어려워",
     content : "코드 보다가 뒤집어 지겠다 ",
-    isdone: false,
-
+    isDone: false,
+  
   },
-
-
-])
-  // const [nextId, setNextId] = useState({})
-  // const [isdone, setIsdone] = useState(false)
+  
+  
+  ])
+ 
+  console.log(todolists)
+// const initialState = {
+//     id: 0,
+//     title: "",
+//     content: "",
+//     isDone: false,
+// }; 
+// const [inputs, setInputs] = useState(initialState);
+ 
+//   // const [nextId, setNextId] = useState({})
+//   // const [isdone, setIsdone] = useState(false)
 // const {title, content, id, isdone} = inputs
 // const onChange = (e) => {
-//     const {name, value} = e.target.value;
+//     const {name, value} = e.target;
 
 //     setInputs({
 //         ...inputs,
@@ -46,17 +58,6 @@ function TodoList() {
 
 // }
 
-// const [todolists, setTodolists] = useState([
-//   {
-//     id :1, 
-//     title : "리액트 공부하기",
-//     content : "어렵지만 해내기",
-//     isdone: false
-//   }
-
-// ])
-
-
 // const onSubmit = () => {
 //   const todolist = {
 //     id,
@@ -64,15 +65,34 @@ function TodoList() {
 //     content,
 //     isdone,
 //   }
-//   setTodolists([...todolists,todolist])
+
+//   setTodolists([...todolists, todolist])
+
+  
 
 // setInputs({
 //   id : id,
 //   title : title,
 //   content :content,
-//   isdone: isdone,
+//   isdone: false,
 // })
 // };
+
+
+
+
+// const onSubmitHandler = (event) => {
+
+//   event.preventDefault();
+
+//   if (inputs.title.trim()=== "" || inputs.content.trim() === "") return;
+//   setTodolists([...todolists,{...todolist, id:number}])
+//   setInputs(initialState);
+//   number++;
+
+// }
+
+ 
 
 
 
@@ -82,21 +102,10 @@ function TodoList() {
   return (
   <Layout>
     <Header/>
-    <Form
-           title = {title}
-        content = {content}
-        onChange={onChange}
-        onSubmit={onSubmit} 
-     
-     />
-      
-     <List>
-        <Todo TodoList todolists = {todolists}/>
-     </List>  
+    <Form todolists = {todolists} setTodolists = {setTodolists}/>
+     <List todolists = {todolists} setTodolists = {setTodolists}/>
   </Layout>
   )
   }
 
 export default TodoList;
-
-console.log(TodoList)

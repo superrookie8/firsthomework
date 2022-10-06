@@ -1,27 +1,28 @@
 import React, {useState} from "react";
 import './style.css'
 
-function Todo ({todolist}){
+function Todo ({inputs, onDeleteHandler, onEditHandler}){
     
     return  ( 
     <div className = "ListBox" >
-        <h2>{todolist.title}</h2>
-        <h4>{todolist.content}</h4>
+        <h2>{inputs.title}</h2>
+        <h4>{inputs.content}</h4>
         <div className ="buttons">
-        <button className = "buttonA">삭제하기</button>
-        <button className = "buttonB">취소</button>
+        <button onClick ={() => onDeleteHandler (inputs.id)} className = "buttonA">삭제하기</button>
+        <button onClick={() => onEditHandler (inputs.id)} className = "buttonB">{inputs.isDone ? "취소" : "완료"}</button>
+        
         </div>
     </div>    
 )
 }
 
-function TodoList2({todolists}){
+// function TodoList2({todolists}){
 
-    return ( <div>
-        {todolists.map(todolist => (
-            <Todo todolist ={todolist} key = {todolist.id}/>
-        ))}
-    </div>
-)
-        }
-export default TodoList2;
+//     return ( <div>
+//         {todolists.map(todolist => (
+//             <Todo todolist ={todolist} key = {todolist.id}/>
+//         ))}
+//     </div>
+// )
+//         }
+export default Todo;

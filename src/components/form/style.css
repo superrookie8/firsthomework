@@ -30,7 +30,7 @@
     min-width: 350px;
     width:100%;
     display: flex;
-    flex-warp: warp;
+    flex-wrap: warp;
     flex-direction: row;
     justify-content: left;
     align-items: center;
