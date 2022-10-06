@@ -8,7 +8,7 @@ function Todo ({inputs, onDeleteHandler, onEditHandler}){
         <h2>{inputs.title}</h2>
         <h4>{inputs.content}</h4>
         <div className ="buttons">
-        <button onClick ={() => onDeleteHandler (inputs.id)} className = "buttonA">삭제하기</button>
+        <button onClick ={() => onDeleteHandler (inputs.id)} className = "buttonA">삭제</button>
         <button onClick={() => onEditHandler (inputs.id)} className = "buttonB">{inputs.isDone ? "취소" : "완료"}</button>
         
         </div>
